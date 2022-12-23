@@ -21,6 +21,10 @@ module.exports = {
       screens: {
         sm: "768px",
       },
+      backgroundImage: theme => ({
+        "desktop": "url('./assets/bg-sidebar-desktop.svg')",
+        "mobile": "url('./assets/bg-sidebar-mobile.svg')",
+      }),
     },
   },
   plugins: [],
