@@ -4,7 +4,7 @@ import { data } from "../constants/data";
 
 const Sidebar = () => {
   return (
-    <aside className="bg-desktop bg-cover bg-no-repeat w-[100%] h-[100%] pt-8 pl-4 basis-1/3 rounded-lg">
+    <aside className="bg-desktop bg-cover bg-no-repeat w-[100%] h-[100%] pt-8 pl-8 basis-[30%] rounded-lg">
       {data.map((item, idx) => {
         return (
           <div

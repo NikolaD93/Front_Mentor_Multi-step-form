@@ -9,10 +9,9 @@ import Sidebar from "./components/Sidebar";
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="bg-white w-[60rem] h-[35rem] rounded-xl shadow-xl p-4 flex">
+      <div className="bg-white w-[60rem] h-[35rem] rounded-xl shadow-xl p-4 flex justify-between">
         <Sidebar/>
         <Routes>
-          <h1>Hello World</h1>
           <Route path="/" element={<PersonalInfo />} />
           <Route path="/selectplan" element={<SelectPlan />} />
           <Route path="/addons" element={<AddOns />} />
