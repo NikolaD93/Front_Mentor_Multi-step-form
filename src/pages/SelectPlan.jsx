@@ -1,21 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { monthlyPlans, yearlyPlans } from "../constants/data";
+import PlansContext from "../context/PlansContext";
 
 const SelectPlan = () => {
   const navigate = useNavigate();
   const [toggleYearly, setToggleYearly] = useState(false);
-  const [title , setTitle] = useState("");
-  const [price, setPrice] = useState(0);
+  const [num, setNum] = useState(0);
 
-  const handleSumbit = (event) => {
-    event.preventDefault();
-    console.log("submitted");
-    navigate("/addons");
-  };
+  let { monthlyTitle } = useContext(PlansContext);
+  let { monthlyPrice } = useContext(PlansContext);
+  let { yearlyTitle } = useContext(PlansContext);
+  let { yearlyPrice } = useContext(PlansContext);
+
+  console.log(monthlyTitle, monthlyPrice);
 
   const handleToggleYearly = () => {
     setToggleYearly((prev) => !prev);
+  };
+
+  const getMonthlyDetails = (id) => {
+    monthlyTitle = monthlyPlans[id].title;
+    monthlyPrice = monthlyPlans[id].price;
+    console.log(monthlyTitle, monthlyPrice);
+    setNum(id + 1);
+  };
+
+  const getYearlyDetails = (id) => {
+    yearlyTitle = yearlyPlans[id].title;
+    yearlyPrice = yearlyPlans[id].price;
+    setNum(id + 1);
+  };
+
+  const handleSumbit = (event) => {
+    event.preventDefault();
+    // if (monthlyTitle === " ") {
+    //   alert("Please choose a plan");
+    // } else {
+    //   navigate("/addons");
+    // }
   };
 
   return (
@@ -26,7 +49,7 @@ const SelectPlan = () => {
       <p className="text-neutral-coolGray mb-6">
         You have the option of monthly or yearly billing.
       </p>
-      <form onSubmit={handleSumbit} className="flex flex-col">
+      <form onSubmit={handleSumbit} className="flex flex-col relative">
         <div
           className={`${
             toggleYearly ? "hidden" : "block"
@@ -35,8 +58,11 @@ const SelectPlan = () => {
           {monthlyPlans.map((item, idx) => {
             return (
               <div
+                onClick={() => getMonthlyDetails(idx)}
                 key={item.id}
-                className="plan border-2 rounded-md p-4 basis-[31%]"
+                className={`plan ${
+                  num != idx + 1 ? "bg-white" : "bg-primary-lightBlue"
+                } border-2 rounded-md p-4 basis-[31%] transition-all duration-300 hover:border-primary-purplishBlue`}
               >
                 <img className="mb-10" src={item.img} alt="plan image" />
                 <h4 className="text-primary-marineBlue font-[500]">
@@ -58,8 +84,11 @@ const SelectPlan = () => {
           {yearlyPlans.map((item, idx) => {
             return (
               <div
+                onClick={() => getYearlyDetails(idx)}
                 key={item.id}
-                className="plan border-2 rounded-md p-4 basis-[31%]"
+                className={`plan ${
+                  num != idx + 1 ? "bg-white" : "bg-primary-lightBlue"
+                } border-2 rounded-md p-4 basis-[31%] transition-all duration-300 hover:border-primary-purplishBlue`}
               >
                 <img className="mb-10" src={item.img} alt="plan image" />
                 <h4 className="text-primary-marineBlue font-[500]">
@@ -105,7 +134,6 @@ const SelectPlan = () => {
             Yearly
           </p>
         </div>
-
         <div className="flex justify-between items-center">
           <button
             onClick={() => navigate("/")}

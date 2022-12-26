@@ -52,7 +52,11 @@ const PersonalInfo = () => {
           </label>
           <input
             onChange={(e) => setName(e.target.value)}
-            className={`${nameAlert ? "focus:outline-primary-strawberryRed" : "focus:outline-primary-marineBlue"} mb-6 outline outline-1 outline-neutral-lightGray rounded-[4px] p-3 `}
+            className={`${
+              nameAlert
+                ? "focus:outline-primary-strawberryRed"
+                : "focus:outline-primary-marineBlue"
+            } mb-6 outline outline-1 outline-neutral-lightGray rounded-[4px] p-3 `}
             type="text"
             placeholder="e.g.Stephen King"
           />
@@ -68,7 +72,11 @@ const PersonalInfo = () => {
           </label>
           <input
             onChange={(e) => setEmail(e.target.value)}
-            className={`${nameAlert ? "focus:outline-primary-strawberryRed" : "focus:outline-primary-marineBlue"} mb-6 outline outline-1 outline-neutral-lightGray rounded-[4px] p-3 `}
+            className={`${
+              nameAlert
+                ? "focus:outline-primary-strawberryRed"
+                : "focus:outline-primary-marineBlue"
+            } mb-6 outline outline-1 outline-neutral-lightGray rounded-[4px] p-3 `}
             type="email"
             placeholder="e.g.stephenking@lorem.com"
           />
@@ -84,7 +92,11 @@ const PersonalInfo = () => {
           </label>
           <input
             onChange={(e) => setNumber(e.target.value)}
-            className={`${nameAlert ? "focus:outline-primary-strawberryRed" : "focus:outline-primary-marineBlue"} mb-6 outline outline-1 outline-neutral-lightGray rounded-[4px] p-3 `}
+            className={`${
+              nameAlert
+                ? "focus:outline-primary-strawberryRed"
+                : "focus:outline-primary-marineBlue"
+            } mb-6 outline outline-1 outline-neutral-lightGray rounded-[4px] p-3 `}
             type="text"
             placeholder="e.g. +1 234 567 890"
           />
@@ -101,7 +113,7 @@ const PersonalInfo = () => {
             className="bg-primary-marineBlue text-white border-0 rounded-md px-6 py-3 transition-all duration-300 hover:opacity-75"
             type="sumbit"
           >
-            Next Step Hello World 
+            Next Step
           </button>
         </div>
       </form>
