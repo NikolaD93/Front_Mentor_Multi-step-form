@@ -18,6 +18,7 @@ const PersonalInfo = () => {
       <p className="text-neutral-coolGray mb-6">
         Please provide your name, email address, and phone number.
       </p>
+      <h2>Hello WOrld</h2>
       <form onSubmit={handleSumbit} className="flex flex-col">
         <label className="text-primary-marineBlue font-[500] mb-2">Name</label>
         <input
