@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import PlansContext from "../context/PlansContext";
 
 const PersonalInfo = () => {
   const navigate = useNavigate();
@@ -10,6 +11,9 @@ const PersonalInfo = () => {
   const [nameAlert, setNameAlert] = useState(false);
   const [emailAlert, setEmailAlert] = useState(false);
   const [numberAlert, setNumberAlert] = useState(false);
+
+  const { newMonthlyPlans } = useContext(PlansContext);
+  console.log(newMonthlyPlans);
 
   const handleSumbit = (event) => {
     event.preventDefault();

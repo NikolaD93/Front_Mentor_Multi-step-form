@@ -8,21 +8,24 @@ const SelectPlan = () => {
   const [toggleYearly, setToggleYearly] = useState(false);
   const [num, setNum] = useState(0);
 
-  let { monthlyTitle } = useContext(PlansContext);
-  let { monthlyPrice } = useContext(PlansContext);
-  let { yearlyTitle } = useContext(PlansContext);
-  let { yearlyPrice } = useContext(PlansContext);
+  let { newMonthlyPlans } = useContext(PlansContext);
 
-  console.log(monthlyTitle, monthlyPrice);
 
   const handleToggleYearly = () => {
     setToggleYearly((prev) => !prev);
   };
 
   const getMonthlyDetails = (id) => {
-    monthlyTitle = monthlyPlans[id].title;
-    monthlyPrice = monthlyPlans[id].price;
-    console.log(monthlyTitle, monthlyPrice);
+    const newValue = [
+      {
+        id: 0,
+        monthlyTitle: monthlyPlans[id].title,
+        monthlyPrice: monthlyPlans[id].price,
+      },
+    ];
+
+    newMonthlyPlans = newValue;
+    console.log(newMonthlyPlans);
     setNum(id + 1);
   };
 
