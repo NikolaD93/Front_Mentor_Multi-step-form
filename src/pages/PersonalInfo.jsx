@@ -12,8 +12,6 @@ const PersonalInfo = () => {
   const [emailAlert, setEmailAlert] = useState(false);
   const [numberAlert, setNumberAlert] = useState(false);
 
-  const { newMonthlyPlans } = useContext(PlansContext);
-  console.log(newMonthlyPlans);
 
   const handleSumbit = (event) => {
     event.preventDefault();

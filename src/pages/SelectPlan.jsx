@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { monthlyPlans, yearlyPlans } from "../constants/data";
 import PlansContext from "../context/PlansContext";
 
 const SelectPlan = () => {
@@ -8,40 +7,40 @@ const SelectPlan = () => {
   const [toggleYearly, setToggleYearly] = useState(false);
   const [num, setNum] = useState(0);
 
-  let { newMonthlyPlans } = useContext(PlansContext);
-
+  const { monthlyPlans, setMonthlyPlans } = useContext(PlansContext);
+  const { yearlyPlans, setYearlyPlans } = useContext(PlansContext);
+  const { selectedMonthlyPlan, setSelectedMonthlyPlan } =
+    useContext(PlansContext);
+  const { selectedYearlyPlan, setSelectedYearlyPlan } =
+    useContext(PlansContext);
 
   const handleToggleYearly = () => {
     setToggleYearly((prev) => !prev);
   };
 
   const getMonthlyDetails = (id) => {
-    const newValue = [
-      {
-        id: 0,
-        monthlyTitle: monthlyPlans[id].title,
-        monthlyPrice: monthlyPlans[id].price,
-      },
-    ];
+    selectedMonthlyPlan.title = monthlyPlans[id].title;
+    selectedMonthlyPlan.price = monthlyPlans[id].price;
+    console.log(selectedMonthlyPlan);
 
-    newMonthlyPlans = newValue;
-    console.log(newMonthlyPlans);
     setNum(id + 1);
   };
 
   const getYearlyDetails = (id) => {
-    yearlyTitle = yearlyPlans[id].title;
-    yearlyPrice = yearlyPlans[id].price;
+    selectedYearlyPlan.title = yearlyPlans[id].title;
+    selectedYearlyPlan.price = yearlyPlans[id].price;
+    console.log(selectedYearlyPlan);
+
     setNum(id + 1);
   };
 
   const handleSumbit = (event) => {
     event.preventDefault();
-    // if (monthlyTitle === " ") {
-    //   alert("Please choose a plan");
-    // } else {
-    //   navigate("/addons");
-    // }
+    if (selectedMonthlyPlan.title === "") {
+      alert("Please choose a plan");
+    } else {
+      navigate("/addons");
+    }
   };
 
   return (
@@ -65,7 +64,11 @@ const SelectPlan = () => {
                 key={item.id}
                 className={`plan ${
                   num != idx + 1 ? "bg-white" : "bg-primary-lightBlue"
-                } border-2 rounded-md p-4 basis-[31%] transition-all duration-300 hover:border-primary-purplishBlue`}
+                } border-2 ${
+                  num != idx + 1
+                    ? "border-neutral-lightGray"
+                    : "border-primary-purplishBlue"
+                } rounded-md p-4 basis-[31%] transition-all duration-300 hover:border-primary-purplishBlue`}
               >
                 <img className="mb-10" src={item.img} alt="plan image" />
                 <h4 className="text-primary-marineBlue font-[500]">
@@ -91,7 +94,11 @@ const SelectPlan = () => {
                 key={item.id}
                 className={`plan ${
                   num != idx + 1 ? "bg-white" : "bg-primary-lightBlue"
-                } border-2 rounded-md p-4 basis-[31%] transition-all duration-300 hover:border-primary-purplishBlue`}
+                } border-2 ${
+                  num != idx + 1
+                    ? "border-neutral-lightGray"
+                    : "border-primary-purplishBlue"
+                } rounded-md p-4 basis-[31%] transition-all duration-300 hover:border-primary-purplishBlue`}
               >
                 <img className="mb-10" src={item.img} alt="plan image" />
                 <h4 className="text-primary-marineBlue font-[500]">
