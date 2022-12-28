@@ -24,8 +24,7 @@ export const AddOnsProvider = ({ children }) => {
     },
   ]);
 
-  const selectedAddOnsValue= ([]);
-
+  const [selectedAddOnsValue, setSelectedAddOnsValue] = useState([]);
 
   return (
     <AddOnsContext.Provider
@@ -33,6 +32,7 @@ export const AddOnsProvider = ({ children }) => {
         addOns,
         setAddOns,
         selectedAddOnsValue,
+        setSelectedAddOnsValue
       }}
     >
       {children}

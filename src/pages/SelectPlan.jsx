@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import PlansContext from "../context/PlansContext";
 
 
+
 const SelectPlan = () => {
   const navigate = useNavigate();
   const [toggleYearly, setToggleYearly] = useState(false);
@@ -13,7 +14,6 @@ const SelectPlan = () => {
   const { selectedMonthlyPlan } = useContext(PlansContext);
   const { selectedYearlyPlan} = useContext(PlansContext);
  
-
   const handleToggleYearly = () => {
     setToggleYearly((prev) => !prev);
   };

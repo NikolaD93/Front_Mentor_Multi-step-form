@@ -5,8 +5,9 @@ import AddOnsContext from "../context/AddOnsContext";
 const AddOns = () => {
   const navigate = useNavigate();
   const { addOns, setAddOns } = useContext(AddOnsContext);
-  const { selectedAddOnsValue } = useContext(AddOnsContext);
-  console.log(selectedAddOnsValue);
+  let { selectedAddOnsValue, setSelectedAddOnsValue } = useContext(AddOnsContext);
+
+  
 
   const [num, setNum] = useState(0);
 
@@ -16,7 +17,7 @@ const AddOns = () => {
   };
 
   const handleChange = (e,id) => {
-    selectedAddOnsValue.push(addOns[id].value);
+    setSelectedAddOnsValue((prev) => [...prev, addOns[id]]);
     setNum(id + 1);
   };
 
