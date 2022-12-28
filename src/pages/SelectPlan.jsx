@@ -42,7 +42,7 @@ const SelectPlan = () => {
   };
 
   return (
-    <div className="basis-[60%] w-[100%] h-[100%] pr-[80px]">
+    <div className="sm:basis-[60%] w-[300px] sm:w-[100%] h-[100%] sm:pr-[80px]">
       <h1 className="mt-10 text-3xl font-[800] mb-2 text-primary-marineBlue">
         Select your Plan
       </h1>
@@ -53,7 +53,7 @@ const SelectPlan = () => {
         <div
           className={`${
             toggleYearly ? "hidden" : "block"
-          } plansMonthly mb-8 flex justify-between cursor-pointer`}
+          } plansMonthly mb-8 flex flex-col sm:flex-row justify-between cursor-pointer`}
         >
           {monthlyPlans.map((item, idx) => {
             return (
@@ -66,9 +66,9 @@ const SelectPlan = () => {
                   num != idx + 1
                     ? "border-neutral-lightGray"
                     : "border-primary-purplishBlue"
-                } rounded-md p-4 basis-[31%] transition-all duration-300 hover:border-primary-purplishBlue`}
+                } rounded-md p-4 flex items-center justify-around mb-4 sm:mb-0 sm:block basis-[31%] transition-all duration-300 hover:border-primary-purplishBlue`}
               >
-                <img className="mb-10" src={item.img} alt="plan image" />
+                <img className="sm:mb-10" src={item.img} alt="plan image" />
                 <h4 className="text-primary-marineBlue font-[500]">
                   {item.title}
                 </h4>
@@ -83,7 +83,7 @@ const SelectPlan = () => {
         <div
           className={`${
             toggleYearly ? "block" : "hidden"
-          } plansYearly mb-8 flex justify-between cursor-pointer`}
+          } plansYearly mb-8 flex flex-col sm:flex-row justify-between cursor-pointer`}
         >
           {yearlyPlans.map((item, idx) => {
             return (
@@ -96,9 +96,9 @@ const SelectPlan = () => {
                   num != idx + 1
                     ? "border-neutral-lightGray"
                     : "border-primary-purplishBlue"
-                } rounded-md p-4 basis-[31%] transition-all duration-300 hover:border-primary-purplishBlue`}
+                } rounded-md p-4 flex items-center justify-around mb-4 sm:mb-0 sm:block sm:basis-[31%] transition-all duration-300 hover:border-primary-purplishBlue`}
               >
-                <img className="mb-10" src={item.img} alt="plan image" />
+                <img className="sm:mb-10" src={item.img} alt="plan image" />
                 <h4 className="text-primary-marineBlue font-[500]">
                   {item.title}
                 </h4>
@@ -115,7 +115,9 @@ const SelectPlan = () => {
 
         <div
           className={`bg-neutral-alabaster flex justify-center items-center py-3 space-x-8 rounded-md ${
-            toggleYearly ? "mb-[79px]" : "mb-[97px]"
+            toggleYearly ? "mb-[70px]" : "mb-[77px]"
+          } ${
+            toggleYearly ? "sm:mb-[79px]" : "sm:mb-[97px]"
           }`}
         >
           <p

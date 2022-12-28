@@ -1,6 +1,5 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import PlansContext from "../context/PlansContext";
 
 const PersonalInfo = () => {
   const navigate = useNavigate();
@@ -11,7 +10,6 @@ const PersonalInfo = () => {
   const [nameAlert, setNameAlert] = useState(false);
   const [emailAlert, setEmailAlert] = useState(false);
   const [numberAlert, setNumberAlert] = useState(false);
-
 
   const handleSumbit = (event) => {
     event.preventDefault();
@@ -40,7 +38,7 @@ const PersonalInfo = () => {
   };
 
   return (
-    <div className="basis-[60%] w-[100%] h-[100%] pr-[80px]">
+    <div className="sm:basis-[60%] w-[300px] sm:w-[100%] h-[100%] sm:pr-[80px]">
       <h1 className="mt-10 text-3xl font-[800] mb-2 text-primary-marineBlue">
         Personal info
       </h1>
@@ -110,7 +108,7 @@ const PersonalInfo = () => {
             This field is required
           </span>
         </div>
-        <div className="flex justify-end items-end mt-[26px]">
+        <div className="flex justify-end items-end py-[2px] mt-[120px] sm:mt-[26px]">
           <button
             className="bg-primary-marineBlue text-white border-0 rounded-md px-6 py-3 transition-all duration-300 hover:opacity-75"
             type="sumbit"

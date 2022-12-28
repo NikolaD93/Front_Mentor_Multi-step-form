@@ -53,12 +53,12 @@ export const PlansProvider = ({ children }) => {
 
   const [selectedMonthlyPlan, setSelectedMonthlyPlan] = useState({
     title: "",
-    price : 0,
+    price : null,
   });
 
   const [selectedYearlyPlan, setSelectedYearlyPlan] = useState({
     title: "",
-    price: 0
+    price: null
   })
 
   return (
