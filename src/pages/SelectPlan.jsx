@@ -2,17 +2,17 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import PlansContext from "../context/PlansContext";
 
+
 const SelectPlan = () => {
   const navigate = useNavigate();
   const [toggleYearly, setToggleYearly] = useState(false);
   const [num, setNum] = useState(0);
 
-  const { monthlyPlans, setMonthlyPlans } = useContext(PlansContext);
-  const { yearlyPlans, setYearlyPlans } = useContext(PlansContext);
-  const { selectedMonthlyPlan, setSelectedMonthlyPlan } =
-    useContext(PlansContext);
-  const { selectedYearlyPlan, setSelectedYearlyPlan } =
-    useContext(PlansContext);
+  const { monthlyPlans } = useContext(PlansContext);
+  const { yearlyPlans } = useContext(PlansContext);
+  const { selectedMonthlyPlan } = useContext(PlansContext);
+  const { selectedYearlyPlan} = useContext(PlansContext);
+ 
 
   const handleToggleYearly = () => {
     setToggleYearly((prev) => !prev);
@@ -21,7 +21,6 @@ const SelectPlan = () => {
   const getMonthlyDetails = (id) => {
     selectedMonthlyPlan.title = monthlyPlans[id].title;
     selectedMonthlyPlan.price = monthlyPlans[id].price;
-    console.log(selectedMonthlyPlan);
 
     setNum(id + 1);
   };
@@ -29,17 +28,16 @@ const SelectPlan = () => {
   const getYearlyDetails = (id) => {
     selectedYearlyPlan.title = yearlyPlans[id].title;
     selectedYearlyPlan.price = yearlyPlans[id].price;
-    console.log(selectedYearlyPlan);
 
     setNum(id + 1);
   };
 
   const handleSumbit = (event) => {
     event.preventDefault();
-    if (selectedMonthlyPlan.title === "") {
-      alert("Please choose a plan");
-    } else {
+    if (selectedMonthlyPlan.title !== "" || selectedYearlyPlan.title !== "") {
       navigate("/addons");
+    } else {
+      alert("Please choose a plan");
     }
   };
 
